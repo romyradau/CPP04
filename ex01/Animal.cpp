@@ -14,7 +14,6 @@ Animal::Animal( const Animal & src ): _type(src.get_type())
 	std::cout << "Animal Copy Constructor called" << std::endl;
 	*this = src;
 }
-//TODO:/* is this needed if i already assign the value?*/
 
 
 /*
