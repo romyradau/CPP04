@@ -4,7 +4,7 @@
 ** ------------------------------- CONSTRUCTOR --------------------------------
 */
 
-Dog::Dog(): Animal()
+Dog::Dog(): AbstractAnimal()
 {
 	std::cout << "Dog Constructor called" << std::endl;
 	_type = "Dog";
@@ -20,7 +20,7 @@ Dog::Dog(): Animal()
  *this->_type("Dog")
 */
 
-Dog::Dog( const Dog & src ): Animal(src)
+Dog::Dog( const Dog & src ): AbstractAnimal(src), BrainPtr (NULL)
 {
 	std::cout << "Dog Copy Constructor called" << std::endl;
 	*this = src;
@@ -46,8 +46,7 @@ Dog &				Dog::operator=( Dog const & rhs )
 {
 	if ( this != &rhs )
 		{
-			std::cout << "hallo" << std::endl;
-			Animal::operator=(rhs);
+			AbstractAnimal::operator=(rhs);
 			if (BrainPtr)
 				delete BrainPtr;
 			//muss gecheckt werden, damit wir bei 2 instanzen nicht den pointer verlieren 
@@ -62,7 +61,7 @@ Dog &				Dog::operator=( Dog const & rhs )
 
 std::ostream &			operator<<( std::ostream & o, Dog const & i )
 {
-	o << "Animal Type = " << i.get_type();
+	o << "AbstractAnimal Type = " << i.get_type();
 	return o;
 }
 

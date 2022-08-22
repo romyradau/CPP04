@@ -16,8 +16,10 @@ class Dog: public Animal
 		~Dog();
 		//damit in der main nach dem richtigen gesucht wird?
 
-		Dog &			operator=( Dog const & rhs );
-		void	makeSound()const;
+		Dog &		operator=( Dog const & rhs );
+		void		makeSound()const;
+		std::string	get_ideas(int i)const;
+
 
 	private:
 

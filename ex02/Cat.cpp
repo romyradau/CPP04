@@ -1,40 +1,49 @@
-#include "Dog.hpp"
+#include "Cat.hpp"
 
 /*
 ** ------------------------------- CONSTRUCTOR --------------------------------
 */
 
-Dog::Dog(): Animal()
+Cat::Cat(): AbstractAnimal()
 {
-	std::cout << "Dog Constructor called" << std::endl;
-	_type = "Dog";
+	std::cout << "Cat Constructor called" << std::endl;
+	_type = "Cat";
 	BrainPtr = new(std::nothrow) Brain();
 	if (!BrainPtr)
 	{
-		std::cout << "DogBrain memory allocation failed" << std::endl;
+		std::cout << "CatBrain memory allocation failed" << std::endl;
 	}
 }
 /*
  so one has to initialize individual values by hand each time,
  if the attribute itself is an inherited memeber?
- *this->_type("Dog")
+ *this->_type("Cat")
 */
 
-Dog::Dog( const Dog & src ): Animal(src)
+Cat::Cat( const Cat & src ): AbstractAnimal(src)
 {
-	std::cout << "Dog Copy Constructor called" << std::endl;
+	std::cout << "Cat Copy Constructor called" << std::endl;
 	*this = src;
+
 }
+/* 
+copy c macht ne default construct aber nicht unsere sondern die im background 
+aka ohne allocation
+aber beim assignen wird dann genau gesagt, was gemacht werden soll aka new()
+
+wennd er c constr aufgerufen wird, wird nicht mehr der andere default aufgerufen
+*/
 
 
 /*
 ** -------------------------------- DESTRUCTOR --------------------------------
 */
 
-Dog::~Dog()
+Cat::~Cat()
 {
-	std::cout << "Dog Deconstructor called" << std::endl;
+	std::cout << "Cat Deconstructor called" << std::endl;
 	delete BrainPtr;
+	
 }
 
 
@@ -42,27 +51,26 @@ Dog::~Dog()
 ** --------------------------------- OVERLOAD ---------------------------------
 */
 
-Dog &				Dog::operator=( Dog const & rhs )
+Cat &				Cat::operator=( Cat const & rhs )
 {
 	if ( this != &rhs )
+	{
+		AbstractAnimal::operator=(rhs);
+		if (BrainPtr)
+			delete BrainPtr;
+		//muss gecheckt werden, damit wir bei 2 instanzen nicht den pointer verlieren 
+		BrainPtr = new(std::nothrow) Brain(*rhs.BrainPtr);
+		if (!BrainPtr)
 		{
-			std::cout << "hallo" << std::endl;
-			Animal::operator=(rhs);
-			if (BrainPtr)
-				delete BrainPtr;
-			//muss gecheckt werden, damit wir bei 2 instanzen nicht den pointer verlieren 
-			BrainPtr = new(std::nothrow) Brain(*rhs.BrainPtr);
-			if (!BrainPtr)
-			{
-				std::cout << "DogBrain memory allocation failed" << std::endl;
-			}
+			std::cout << "CatBrain memory allocation failed" << std::endl;
 		}
+	}
 	return *this;
 }
 
-std::ostream &			operator<<( std::ostream & o, Dog const & i )
+std::ostream &			operator<<( std::ostream & o, Cat const & i )
 {
-	o << "Animal Type = " << i.get_type();
+	o << "AbstractAnimal Type = " << i.get_type();
 	return o;
 }
 
@@ -71,17 +79,14 @@ std::ostream &			operator<<( std::ostream & o, Dog const & i )
 ** --------------------------------- METHODS ----------------------------------
 */
 
-void	Dog::makeSound()const
+void	Cat::makeSound()const
 {
-std::cout << "wuffwuff" << std::endl;
+std::cout << "meoooooow" << std::endl;
+
 }
 
-std::string	Dog::get_ideas(int i)const
-{
-	return (this->BrainPtr->get_ideas(i));
-}
 
-// void	Dog::makeSound()
+// void	Cat::makeSound()
 // {
 // std::cout << "meoooooow" << std::endl
 // <<"            *     ,MMM8&&&.            * "<< std::endl
