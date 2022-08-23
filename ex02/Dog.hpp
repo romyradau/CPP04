@@ -19,6 +19,7 @@ class Dog: public AbstractAnimal
 		Dog &			operator=( Dog const & rhs );
 		virtual void	makeSound()const;
 		std::string		get_ideas(int i)const;
+		//better to use const ref for getters?
 
 
 	private:

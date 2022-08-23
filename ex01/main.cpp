@@ -27,9 +27,10 @@ int main()
 	Dog*		 Dog1 = new  Dog;
 	Dog*		 Dog2 = new  Dog(*Dog1);
 	// Dog 	 new Dog2(Dog1);
-	std::cout << Dog1->get_ideas(99) << std::endl;
+	std::cout << Dog1->get_ideas(0) << std::endl;
 	delete Dog1;
-	std::cout << Dog2->get_ideas(100) << std::endl;
+	std::cout << Dog2->get_ideas(98) << std::endl;
 	delete Dog2;
+	system("leaks animals");
 	return 0;
 }
