@@ -5,8 +5,6 @@
 # include <string>
 # include "ICharacter.hpp"
 # include  <limits>
-// # include <bits/stdc++.h>
-
 
 class Character: public ICharacter
 {
@@ -17,12 +15,14 @@ class Character: public ICharacter
 		Character( Character const & src );
 		~Character();
 
-		Character &		operator=( Character const & rhs );
+		Character &	operator=( Character const & rhs );
 		virtual std::string const & getName() const;
 		virtual void equip(AMateria* m);
 		virtual void unequip(int idx);
 		virtual void use(int idx, ICharacter& target);
-		//TODO: vitual hier lassen, weils auch von virtual stammt?
+		//getters missin but werent required in the main/pdf
+		//i can code them if you want
+
 	private:
 		AMateria* slots[4];
 		AMateria* droppedItems[INT_MAX];
@@ -31,6 +31,6 @@ class Character: public ICharacter
 
 };
 
-std::ostream &			operator<<( std::ostream & o, Character const & i );
+// std::ostream &			operator<<( std::ostream & o, Character const & i );
 
 #endif /* ******************************************************* CHARACTER_H */

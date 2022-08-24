@@ -30,7 +30,6 @@ Cat::Cat( const Cat & src ): Animal(src)
 copy c macht ne default construct aber nicht unsere sondern die im background 
 aka ohne allocation
 aber beim assignen wird dann genau gesagt, was gemacht werden soll aka new()
-
 wennd er c constr aufgerufen wird, wird nicht mehr der andere default aufgerufen
 */
 
@@ -58,7 +57,6 @@ Cat &				Cat::operator=( Cat const & rhs )
 		Animal::operator=(rhs);
 		if (BrainPtr)
 			delete BrainPtr;
-		//muss gecheckt werden, damit wir bei 2 instanzen nicht den pointer verlieren 
 		BrainPtr = new(std::nothrow) Brain(*rhs.BrainPtr);
 		if (!BrainPtr)
 		{

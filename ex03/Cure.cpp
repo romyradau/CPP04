@@ -55,10 +55,7 @@ Cure &				Cure::operator=( Cure const & rhs )
 AMateria* Cure::clone() const
 {
 	return ( new Cure() );
-	//kann man das so schreiben?
 }
-//TODO: wenn der hier nur nen AM Pointer zuruckgibt, 
-//woher weiss er dann, dass das auch ein cure ist?
 
 void Cure::use(ICharacter& target)
 {

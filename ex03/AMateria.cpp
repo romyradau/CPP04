@@ -8,13 +8,15 @@ AMateria::AMateria(): _type("undefined")
 {
 	std::cout << "AMateria Default Cobstructor called" << std::endl;
 }
-//TODO:initlist vervollstaendigen
+
 
 AMateria::AMateria(std::string const & type): _type(type)
 {
 	std::cout << "AMateria Custom Cobstructor called" << std::endl;
 }
-//TODO:fehlt noch type initializen
+//TODO:should one call ices and cures cc?
+//it shouldn't be posible to call an AClass's conctructor...
+
 
 AMateria::AMateria( const AMateria & src )
 {
@@ -59,7 +61,7 @@ AMateria &				AMateria::operator=( AMateria const & rhs )
 
 void AMateria::use(ICharacter& target)
 {
-//TODO:implementation
+	std::cout << "no special use." << std::endl;
 }
 
 
@@ -70,5 +72,5 @@ std::string const & AMateria::getType() const //Returns the materia type
 {
 	return (this->_type);
 }
-//TODO::not sure if this is right here
+
 /* ************************************************************************** */

@@ -28,4 +28,3 @@ class AMateria
 
 #endif /* ******************************************************** AMATERIA_H */
 //TODO:do I need assignment und CopyConstructor hier?
-//muss hier noch irgendwas virtual sein?

@@ -18,9 +18,6 @@ class ICharacter
 		virtual void use(int idx, ICharacter& target) = 0;
 
 };
-//TODO: muessen heir auch noch copy constr destructors hin?
 // std::ostream &			operator<<( std::ostream & o, ICharacter const & i );
 
 #endif /* ****************************************************** ICHARACTER_H */
-
-//TODO:also bei Interfaces werden nur header erstellt?

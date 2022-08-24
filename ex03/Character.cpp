@@ -51,7 +51,6 @@ Character &				Character::operator=( Character const & rhs )
 			if (rhs.slots[i])
 				this->slots[i] = rhs.slots[i]->clone();
 		}
-			//vlt noch auf NULLptr stellen
 		for(int i = 0; i < INT_MAX; i++)
 		{
 			if (this->droppedItems[i])
@@ -59,13 +58,6 @@ Character &				Character::operator=( Character const & rhs )
 			else
 				break ;
 		}
-	//hier braucht amn jetzt iwie die clone function
-		// for (int i = 0; i < 4; i++)
-		// {
-		// 	if (rhs.slots[i])
-		// 	rhs.slots[i]->clone();
-		// 	//fehlt hier noch das assignen?
-		// }
 		for(int i = 0; i < INT_MAX; i++)
 		{
 			if (rhs.droppedItems[i])
@@ -76,23 +68,20 @@ Character &				Character::operator=( Character const & rhs )
 	}
 	return *this;
 }
-//TODO:wo und wie werdend ie materias erstellt uerbhaupt?
+/*rhs can have more dropped items then this*/
 
-std::ostream &			operator<<( std::ostream & o, Character const & i )
-{
-	//o << "Value = " << i.getValue();
-	return o;
-}
+// std::ostream &			operator<<( std::ostream & o, Character const & i )
+// {
+// 	//o << "Value = " << i.getValue();
+// 	return o;
+// }
 
 
 /*
 ** --------------------------------- METHODS ----------------------------------
 */
 
-std::string const & Character::getName() const
-{
-	return (this->_name);
-}
+
 
 void Character::equip(AMateria* m)
 {
@@ -104,9 +93,7 @@ void Character::equip(AMateria* m)
 			return;
 		}
 	}
-
 }
-//TODO:wo und wie werdend ie materias erstellt uerbhaupt?
 
 
 void Character::unequip(int idx)
@@ -119,7 +106,6 @@ void Character::unequip(int idx)
 			this->slots[idx] = NULL;
 			return ;
 		}
-		//koennte man improven...
 	}
 }
 
@@ -129,13 +115,17 @@ void Character::use(int idx, ICharacter& target)
 	{
 		this->slots[idx]->use(target); 
 	}
-
 }
 
 
 /*
 ** --------------------------------- ACCESSOR ---------------------------------
 */
+
+std::string const & Character::getName() const
+{
+	return (this->_name);
+}
 
 
 /* ************************************************************************** */

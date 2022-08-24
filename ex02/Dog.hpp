@@ -14,7 +14,6 @@ class Dog: public AbstractAnimal
 		Dog();
 		Dog( Dog const & src );
 		virtual~Dog();
-		//damit in der main nach dem richtigen gesucht wird?
 
 		Dog &			operator=( Dog const & rhs );
 		virtual void	makeSound()const;
@@ -31,4 +30,3 @@ class Dog: public AbstractAnimal
 std::ostream &			operator<<( std::ostream & o, Dog const & i );
 
 #endif /* ************************************************************* DOG_H */
-/*in der derived calss alles als virtual deklareren wennd as ind er base calss auch so ist*/

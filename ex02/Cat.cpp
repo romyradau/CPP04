@@ -16,7 +16,7 @@ Cat::Cat(): AbstractAnimal()
 }
 /*
  so one has to initialize individual values by hand each time,
- if the attribute itself is an inherited memeber?
+ if the attribute itself is an inherited member?
  *this->_type("Cat")
 */
 
@@ -30,8 +30,7 @@ Cat::Cat( const Cat & src ): AbstractAnimal(src)
 copy c macht ne default construct aber nicht unsere sondern die im background 
 aka ohne allocation
 aber beim assignen wird dann genau gesagt, was gemacht werden soll aka new()
-
-wennd er c constr aufgerufen wird, wird nicht mehr der andere default aufgerufen
+wenn der c constr aufgerufen wird, wird nicht mehr der andere default aufgerufen
 */
 
 
@@ -56,11 +55,10 @@ Cat &				Cat::operator=( Cat const & rhs )
 	if ( this != &rhs )
 	{
 		AbstractAnimal::operator=(rhs);
-		if (BrainPtr)
-			delete BrainPtr;
-		//muss gecheckt werden, damit wir bei 2 instanzen nicht den pointer verlieren 
-		BrainPtr = new(std::nothrow) Brain(*rhs.BrainPtr);
-		if (!BrainPtr)
+		if (this->BrainPtr)
+			delete this->BrainPtr;
+		this->BrainPtr = new(std::nothrow) Brain(*rhs.BrainPtr);
+		if (!this->BrainPtr)
 		{
 			std::cout << "CatBrain memory allocation failed" << std::endl;
 		}

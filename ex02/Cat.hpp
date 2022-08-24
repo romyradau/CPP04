@@ -17,10 +17,7 @@ class Cat: public AbstractAnimal
 
 		Cat &			operator=( Cat const & rhs );
 		virtual void	makeSound()const;
-	
 
-	private:
-		const std::string idea;
 
 	private:
 

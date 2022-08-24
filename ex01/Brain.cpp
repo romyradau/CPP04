@@ -51,7 +51,6 @@ std::ostream &			operator<<( std::ostream & o, Brain const & src )
 	{
 		o << "idea: " << i << " " << src.get_ideas(i);
 	}
-	//wie kann ich heir durch den pointer loopen?
 	return o;
 }
 
@@ -72,7 +71,6 @@ void	Brain::set_ideas(std::string idea)
 		std::ostringstream tem;
 		tem << i;
 		s = tem.str();
-		//make string out of integer
 		s += ": " + idea;
 		this->ideas[i] = s;
 
@@ -83,5 +81,4 @@ std::string	Brain::get_ideas(int i)const
 {
 	return (this->ideas[i]);
 }
-//wie kann man nen pointer zuruck geben?
 /* ************************************************************************** */

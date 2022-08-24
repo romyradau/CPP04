@@ -50,7 +50,6 @@ Dog &				Dog::operator=( Dog const & rhs )
 			Animal::operator=(rhs);
 			if (BrainPtr)
 				delete BrainPtr;
-			//muss gecheckt werden, damit wir bei 2 instanzen nicht den pointer verlieren 
 			BrainPtr = new(std::nothrow) Brain(*rhs.BrainPtr);
 			if (!BrainPtr)
 			{

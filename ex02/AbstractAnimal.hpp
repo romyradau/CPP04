@@ -28,4 +28,5 @@ std::ostream &			operator<<( std::ostream & o, AbstractAnimal const & i );
 #endif /* ********************************************************** AbstractAnimal_H */
 
 /* also for protected attributes you need getters */
-/* its sufficient to declare makeSound virtua only here and not also in As subclasses - why? */
+/* its sufficient to declare makeSound virtul only here and not also in As subclasses - why? */
+//is it bc virtual is like a open gate in the inheritence tree?

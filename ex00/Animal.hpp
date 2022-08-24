@@ -29,4 +29,4 @@ std::ostream &			operator<<( std::ostream & o, Animal const & i );
 #endif /* ********************************************************** ANIMAL_H */
 
 /* also for protected attributes you need getters */
-/* its sufficient to declare makeSound virtua only here and not also in As subclasses - why? */
+/* its sufficient to declare makeSound virtual only here and not also in As subclasses - why? */

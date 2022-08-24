@@ -6,10 +6,7 @@ FLAGS =  -std=c++98
 
 FLAGS += -g
 
-# SRC = main.cpp AMateria.cpp
-
 SRC	=	$(shell find . -name "*.cpp" -execdir echo {} ";")
-
 
 all: $(NAME)
 

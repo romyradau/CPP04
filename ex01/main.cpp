@@ -6,22 +6,22 @@
 int main()
 {
 	// Animal *Animals = new(std::nothrow) Animal[10];
-	// Animal *Animals[4];
-	// for (int i = 0; i < 4; i++)
-	// {
-	// 	if (i % 2) {
-	// 		Animals[i] = new Dog();
-	// 		// static_cast<Dog*>(Animals[i])->get_ideas(i); 
-	// 	}
-	// 	else {
-	// 		Animals[i] = new Cat();
-	// 	}
-	// }
-	// Animals[0]->makeSound();
-	// for (int i = 0; i < 4; i++)
-	// {
-	// 	delete Animals[i];
-	// }
+	Animal *Animals[4];
+	for (int i = 0; i < 4; i++)
+	{
+		if (i % 2) {
+			Animals[i] = new Dog();
+			// static_cast<Dog*>(Animals[i])->get_ideas(i); 
+		}
+		else {
+			Animals[i] = new Cat();
+		}
+	}
+	Animals[0]->makeSound();
+	for (int i = 0; i < 4; i++)
+	{
+		delete Animals[i];
+	}
 
 	//show deep copy
 	Dog*		 Dog1 = new  Dog;
